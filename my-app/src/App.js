@@ -57,10 +57,7 @@ function App() {
       <header className="App-header">
         <h1>BaseBall Counter</h1>
         <Display balls={balls} strikes={strikes} />
-        <button onClick={() => ball()}>Ball Count</button>
-        <button onClick={() => strike()}>Strike Count</button>
-        <button onClick={() => foul()}>Foul Ball</button>
-        <button onClick={() => hit()}>Hit!</button>
+        <Dashboard ball={ball} strike={strike} foul={foul} hit={hit} />
         {/* <h2>{data.ballCount}</h2>
         <button onClick={() => updateCount('ballCount', data.ballCount)}>Ball Count</button>
         <h2>{data.strikeCount}</h2>
