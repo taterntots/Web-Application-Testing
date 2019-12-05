@@ -10,7 +10,13 @@ function App() {
   })
 
   const updateCount = (name, count) => {
-    count = count + 1;
+    if (name === 'strikeCount' && count === 3) {
+      count = 0;
+    } else if (name === 'ballCount' && count === 4) {
+      count = 0;
+    } else {
+      count = count + 1;
+    }
     setData({...data, [name]: count});
   }
 
@@ -20,6 +26,8 @@ function App() {
         <h1>BaseBall Counter</h1>
         <h2>{data.ballCount}</h2>
         <button onClick={() => updateCount('ballCount', data.ballCount)}>Ball Count</button>
+        <h2>{data.strikeCount}</h2>
+        <button onClick={() => updateCount('strikeCount', data.strikeCount)}>Strike Count</button>
       </header>
     </div>
   );
