@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Display from './components/Display';
+import Dashboard from './components/Dashboard';
 import './App.css';
 
 function App() {
@@ -54,9 +56,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>BaseBall Counter</h1>
-        <h2>{balls}</h2>
+        <Display balls={balls} strikes={strikes} />
         <button onClick={() => ball()}>Ball Count</button>
-        <h2>{strikes}</h2>
         <button onClick={() => strike()}>Strike Count</button>
         <button onClick={() => foul()}>Foul Ball</button>
         <button onClick={() => hit()}>Hit!</button>
