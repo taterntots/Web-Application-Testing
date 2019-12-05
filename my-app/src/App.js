@@ -31,11 +31,22 @@ function App() {
   }
 
   const strike = () => {
-    if(strikes < 2) {
+    if (strikes < 2) {
       setStrikes(strikes + 1);
     } else if (strikes === 2) {
       setBalls(0);
       setStrikes(0);
+    }
+  }
+
+  const hit = () => {
+    setStrikes(0);
+    setBalls(0);
+  }
+
+  const foul = () => {
+    if (strikes < 2) {
+      setStrikes(strikes + 1);
     }
   }
 
@@ -47,6 +58,8 @@ function App() {
         <button onClick={() => ball()}>Ball Count</button>
         <h2>{strikes}</h2>
         <button onClick={() => strike()}>Strike Count</button>
+        <button onClick={() => foul()}>Foul Ball</button>
+        <button onClick={() => hit()}>Hit!</button>
         {/* <h2>{data.ballCount}</h2>
         <button onClick={() => updateCount('ballCount', data.ballCount)}>Ball Count</button>
         <h2>{data.strikeCount}</h2>
