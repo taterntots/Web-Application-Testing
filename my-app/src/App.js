@@ -6,6 +6,7 @@ import './App.css';
 function App() {
   const [balls, setBalls] = useState(0);
   const [strikes, setStrikes] = useState(0);
+  const [outs, setOuts] = useState(0);
 
   const ball = () => {
     if (balls < 3) {
@@ -22,7 +23,8 @@ function App() {
     } else if (strikes === 2) {
       setBalls(0);
       setStrikes(0);
-    }
+      addOuts();
+    } 
   }
 
   const hit = () => {
@@ -36,11 +38,18 @@ function App() {
     }
   }
 
+  const addOuts = () => {
+    setOuts(outs + 1);
+    if (outs === 2) {
+      setOuts(0);
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>BaseBall Counter</h1>
-        <Display balls={balls} strikes={strikes} />
+        <Display balls={balls} strikes={strikes} outs={outs}/>
         <Dashboard ball={ball} strike={strike} foul={foul} hit={hit} />
       </header>
     </div>
